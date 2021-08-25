@@ -1,5 +1,5 @@
 resource "google_compute_instance" "service_vm" {
-  name         = "${var.name_prefix}-service"
+  name         = "${var.name_prefix}-${random_integer.rand.result}-service"
   machine_type = "e2-micro"
   zone         = data.google_compute_zones.zones.names[1]
   allow_stopping_for_update = true
